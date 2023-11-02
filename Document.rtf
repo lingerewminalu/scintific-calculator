@@ -1,0 +1,827 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang2057{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset1 Cambria Math;}{\f2\fnil\fcharset161 Calibri;}}
+{\colortbl ;\red255\green0\blue0;}
+{\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont1\mwrapIndent1440 }\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\cf1\f0\fs28\lang9 MAIN ACTIVITY.xml\cf0\fs22\par
+package com.example.s_calculator;\par
+\par
+import androidx.appcompat.app.AppCompatActivity;\par
+\par
+import android.os.Bundle;\par
+import android.view.View;\par
+import android.widget.Button;\par
+import android.widget.TextView;\par
+\par
+public class MainActivity extends AppCompatActivity \{\par
+    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdot,bpi,bequal,bplus,bmin,bmul,bdiv,binv,bsqrt,bsquare,bfact,bln,blog,btan,bcos,bsin,bb1,bb2,bc,bac;\par
+    TextView tvmain,tvsec;\par
+    String pi = "3.14159265";\par
+\par
+    @Override\par
+    protected void onCreate(Bundle savedInstanceState) \{\par
+        super.onCreate(savedInstanceState);\par
+        setContentView(R.layout.activity_main);\par
+\par
+        b1 = findViewById(R.id.b1);\par
+        b2 = findViewById(R.id.b2);\par
+        b3 = findViewById(R.id.b3);\par
+        b4 = findViewById(R.id.b4);\par
+        b5 = findViewById(R.id.b5);\par
+        b6 = findViewById(R.id.b6);\par
+        b7 = findViewById(R.id.b7);\par
+        b8 = findViewById(R.id.b8);\par
+        b9 = findViewById(R.id.b9);\par
+        b0 = findViewById(R.id.b0);\par
+        bpi = findViewById(R.id.bpi);\par
+        bdot = findViewById(R.id.bdot);\par
+        bequal = findViewById(R.id.bequal);\par
+        bplus = findViewById(R.id.bplus);\par
+        bmin = findViewById(R.id.bmin);\par
+        bmul = findViewById(R.id.bmul);\par
+        bdiv = findViewById(R.id.bdiv);\par
+        binv = findViewById(R.id.binv);\par
+        bsqrt = findViewById(R.id.bsqrt);\par
+        bsquare = findViewById(R.id.bsquare);\par
+        bfact = findViewById(R.id.bfact);\par
+        bln = findViewById(R.id.bln);\par
+        blog = findViewById(R.id.blog);\par
+        btan = findViewById(R.id.btan);\par
+        bsin = findViewById(R.id.bsin);\par
+        bcos = findViewById(R.id.bcos);\par
+        bb1 = findViewById(R.id.bb1);\par
+        bb2 = findViewById(R.id.bb2);\par
+        bc = findViewById(R.id.bc);\par
+        bac = findViewById(R.id.bac);\par
+\par
+        tvmain = findViewById(R.id.tvmain);\par
+        tvsec = findViewById(R.id.tvsec);\par
+\par
+        //onclick listeners\par
+        b1.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"1");\par
+            \}\par
+        \});\par
+        b2.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"2");\par
+            \}\par
+        \});\par
+        b3.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"3");\par
+            \}\par
+        \});\par
+        b4.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"4");\par
+            \}\par
+        \});\par
+        b5.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"5");\par
+            \}\par
+        \});\par
+        b6.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"6");\par
+            \}\par
+        \});\par
+        b7.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"7");\par
+            \}\par
+        \});\par
+        b8.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"8");\par
+            \}\par
+        \});\par
+        b9.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"9");\par
+            \}\par
+        \});\par
+        b0.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"0");\par
+            \}\par
+        \});\par
+        bdot.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+".");\par
+            \}\par
+        \});\par
+        bac.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText("");\par
+                tvsec.setText("");\par
+            \}\par
+        \});\par
+        bc.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                String val = tvmain.getText().toString();\par
+                val = val.substring(0, val.length() - 1);\par
+                tvmain.setText(val);\par
+            \}\par
+        \});\par
+        bplus.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"+");\par
+            \}\par
+        \});\par
+        bmin.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"-");\par
+            \}\par
+        \});\par
+        bmul.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"\'d7");\par
+            \}\par
+        \});\par
+        bdiv.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"\'f7");\par
+            \}\par
+        \});\par
+        bsqrt.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                String val = tvmain.getText().toString();\par
+                double r = Math.sqrt(Double.parseDouble(val));\par
+                tvmain.setText(String.valueOf(r));\par
+            \}\par
+        \});\par
+        bb1.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"(");\par
+            \}\par
+        \});\par
+        bb2.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+")");\par
+            \}\par
+        \});\par
+        bpi.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvsec.setText(bpi.getText());\par
+                tvmain.setText(tvmain.getText()+pi);\par
+            \}\par
+        \});\par
+        bsin.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"sin");\par
+            \}\par
+        \});\par
+        bcos.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"cos");\par
+            \}\par
+        \});\par
+        btan.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"tan");\par
+            \}\par
+        \});\par
+        binv.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"^"+"(-1)");\par
+            \}\par
+        \});\par
+        bfact.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                int val = Integer.parseInt(tvmain.getText().toString());\par
+                int fact = factorial(val);\par
+                tvmain.setText(String.valueOf(fact));\par
+                tvsec.setText(val+"!");\par
+            \}\par
+        \});\par
+        bsquare.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                double d = Double.parseDouble(tvmain.getText().toString());\par
+                double square = d*d;\par
+                tvmain.setText(String.valueOf(square));\par
+                tvsec.setText(d+"\'b2");\par
+            \}\par
+        \});\par
+        bln.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"ln");\par
+            \}\par
+        \});\par
+        blog.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                tvmain.setText(tvmain.getText()+"log");\par
+            \}\par
+        \});\par
+        bequal.setOnClickListener(new View.OnClickListener() \{\par
+            @Override\par
+            public void onClick(View v) \{\par
+                String val = tvmain.getText().toString();\par
+                String replacedstr = val.replace('\'f7','/').replace('\'d7','*');\par
+                double result = eval(replacedstr);\par
+                tvmain.setText(String.valueOf(result));\par
+                tvsec.setText(val);\par
+            \}\par
+        \});\par
+\par
+    \}\par
+\par
+    //factorial function\par
+    int factorial(int n)\par
+    \{\par
+        return (n==1 || n==0) ? 1 : n*factorial(n-1);\par
+    \}\par
+\par
+\par
+    //eval function\par
+    public static double eval(final String str) \{\par
+        return new Object() \{\par
+            int pos = -1, ch;\par
+\par
+            void nextChar() \{\par
+                ch = (++pos < str.length()) ? str.charAt(pos) : -1;\par
+            \}\par
+\par
+            boolean eat(int charToEat) \{\par
+                while (ch == ' ') nextChar();\par
+                if (ch == charToEat) \{\par
+                    nextChar();\par
+                    return true;\par
+                \}\par
+                return false;\par
+            \}\par
+\par
+            double parse() \{\par
+                nextChar();\par
+                double x = parseExpression();\par
+                if (pos < str.length()) throw new RuntimeException("Unexpected: " + (char)ch);\par
+                return x;\par
+            \}\par
+\par
+            // Grammar:\par
+            // expression = term | expression `+` term | expression `-` term\par
+            // term = factor | term `*` factor | term `/` factor\par
+            // factor = `+` factor | `-` factor | `(` expression `)`\par
+            //        | number | functionName factor | factor `^` factor\par
+\par
+            double parseExpression() \{\par
+                double x = parseTerm();\par
+                for (;;) \{\par
+                    if      (eat('+')) x += parseTerm(); // addition\par
+                    else if (eat('-')) x -= parseTerm(); // subtraction\par
+                    else return x;\par
+                \}\par
+            \}\par
+\par
+            double parseTerm() \{\par
+                double x = parseFactor();\par
+                for (;;) \{\par
+                    if      (eat('*')) x *= parseFactor(); // multiplication\par
+                    else if (eat('/')) x /= parseFactor(); // division\par
+                    else return x;\par
+                \}\par
+            \}\par
+\par
+            double parseFactor() \{\par
+                if (eat('+')) return parseFactor(); // unary plus\par
+                if (eat('-')) return -parseFactor(); // unary minus\par
+\par
+                double x;\par
+                int startPos = this.pos;\par
+                if (eat('(')) \{ // parentheses\par
+                    x = parseExpression();\par
+                    eat(')');\par
+                \} else if ((ch >= '0' && ch <= '9') || ch == '.') \{ // numbers\par
+                    while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();\par
+                    x = Double.parseDouble(str.substring(startPos, this.pos));\par
+                \} else if (ch >= 'a' && ch <= 'z') \{ // functions\par
+                    while (ch >= 'a' && ch <= 'z') nextChar();\par
+                    String func = str.substring(startPos, this.pos);\par
+                    x = parseFactor();\par
+                    if (func.equals("sqrt")) x = Math.sqrt(x);\par
+                    else if (func.equals("sin")) x = Math.sin(Math.toRadians(x));\par
+                    else if (func.equals("cos")) x = Math.cos(Math.toRadians(x));\par
+                    else if (func.equals("tan")) x = Math.tan(Math.toRadians(x));\par
+                    else if (func.equals("log")) x = Math.log10(x);\par
+                    else if (func.equals("ln")) x = Math.log(x);\par
+                    else throw new RuntimeException("Unknown function: " + func);\par
+                \} else \{\par
+                    throw new RuntimeException("Unexpected: " + (char)ch);\par
+                \}\par
+\par
+                if (eat('^')) x = Math.pow(x, parseFactor()); // exponentiation\par
+\par
+                return x;\par
+            \}\par
+        \}.parse();\par
+    \}\par
+\}\par
+\fs28\par
+\cf1\fs32 ACTIyity.main.xml\cf0\fs28\par
+<?xml version="1.0" encoding="utf-8"?>\par
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"\par
+    xmlns:app="http://schemas.android.com/apk/res-auto"\par
+    xmlns:tools="http://schemas.android.com/tools"\par
+    android:layout_width="match_parent"\par
+    android:layout_height="match_parent"\par
+    android:orientation="vertical"\par
+    android:weightSum="10"\par
+    tools:context=".MainActivity">\par
+    <TextView\par
+        android:id="@+id/tvsec"\par
+        android:layout_width="match_parent"\par
+        android:layout_height="0dp"\par
+        android:background="#000"\par
+        android:text=""\par
+        android:textColor="#f6f6f6"\par
+        android:textSize="30sp"\par
+        android:textAlignment="viewEnd"\par
+        android:padding="10dp"\par
+        android:gravity="bottom"\par
+        android:maxLines="1"\par
+        android:layout_weight="1">\par
+\par
+    </TextView>\par
+    <TextView\par
+        android:id="@+id/tvmain"\par
+        android:layout_width="match_parent"\par
+        android:layout_height="0dp"\par
+        android:background="#000"\par
+        android:text=""\par
+        android:textColor="#fff"\par
+        android:textSize="50sp"\par
+        android:textAlignment="viewEnd"\par
+        android:padding="10dp"\par
+        android:gravity="bottom"\par
+        android:maxLines="1"\par
+        android:layout_weight="2">\par
+\par
+    </TextView>\par
+    <LinearLayout\par
+        android:layout_weight="7"\par
+        android:orientation="vertical"\par
+        android:layout_width="match_parent"\par
+        android:layout_height="0dp">\par
+        <LinearLayout\par
+            android:orientation="vertical"\par
+            android:weightSum="7"\par
+            android:layout_width="match_parent"\par
+            android:layout_height="match_parent">\par
+            <LinearLayout\par
+                android:layout_weight="1"\par
+                android:orientation="horizontal"\par
+                android:layout_width="match_parent"\par
+                android:layout_height="match_parent">\par
+                <LinearLayout\par
+                    android:orientation="horizontal"\par
+                    android:weightSum="4"\par
+                    android:layout_width="match_parent"\par
+                    android:layout_height="match_parent">\par
+                    <Button\par
+                        android:id="@+id/bac"\par
+                        android:text="AC"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bc"\par
+                        android:text="C"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bb1"\par
+                        android:text="("\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bb2"\par
+                        android:text=")"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                </LinearLayout>\par
+            </LinearLayout>\par
+            <LinearLayout\par
+                android:layout_weight="1"\par
+                android:orientation="horizontal"\par
+                android:layout_width="match_parent"\par
+                android:layout_height="match_parent">\par
+                <LinearLayout\par
+                    android:orientation="horizontal"\par
+                    android:weightSum="5"\par
+                    android:layout_width="match_parent"\par
+                    android:layout_height="match_parent">\par
+                    <Button\par
+                        android:id="@+id/bsin"\par
+                        android:text="sin"\par
+                        android:textAllCaps="false"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bcos"\par
+                        android:text="cos"\par
+                        android:textAllCaps="false"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/btan"\par
+                        android:text="tan"\par
+                        android:textAllCaps="false"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/blog"\par
+                        android:text="log"\par
+                        android:textAllCaps="false"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bln"\par
+                        android:text="ln"\par
+                        android:textAllCaps="false"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                </LinearLayout>\par
+            </LinearLayout>\par
+            <LinearLayout\par
+                android:layout_weight="1"\par
+                android:orientation="horizontal"\par
+                android:layout_width="match_parent"\par
+                android:layout_height="match_parent">\par
+                <LinearLayout\par
+                    android:orientation="horizontal"\par
+                    android:weightSum="5"\par
+                    android:layout_width="match_parent"\par
+                    android:layout_height="match_parent">\par
+                    <Button\par
+                        android:id="@+id/bfact"\par
+                        android:text="x!"\par
+                        android:textAllCaps="false"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bsquare"\par
+                        android:text="x\'b2"\par
+                        android:textAllCaps="false"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bsqrt"\par
+                        android:text="\f1\u8730?\f0 "\par
+                        android:textAllCaps="false"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/binv"\par
+                        android:text="1/x"\par
+                        android:textAllCaps="false"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bdiv"\par
+                        android:text="\'f7"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                </LinearLayout>\par
+            </LinearLayout>\par
+            <LinearLayout\par
+                android:layout_weight="1"\par
+                android:orientation="horizontal"\par
+                android:layout_width="match_parent"\par
+                android:layout_height="match_parent">\par
+                <LinearLayout\par
+                    android:orientation="horizontal"\par
+                    android:weightSum="4"\par
+                    android:layout_width="match_parent"\par
+                    android:layout_height="match_parent">\par
+                    <Button\par
+                        android:id="@+id/b7"\par
+                        android:text="7"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/b8"\par
+                        android:text="8"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/b9"\par
+                        android:text="9"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bmul"\par
+                        android:text="\'d7"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                </LinearLayout>\par
+            </LinearLayout>\par
+            <LinearLayout\par
+                android:layout_weight="1"\par
+                android:orientation="horizontal"\par
+                android:layout_width="match_parent"\par
+                android:layout_height="match_parent">\par
+                <LinearLayout\par
+                    android:orientation="horizontal"\par
+                    android:weightSum="4"\par
+                    android:layout_width="match_parent"\par
+                    android:layout_height="match_parent">\par
+                    <Button\par
+                        android:id="@+id/b4"\par
+                        android:text="4"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/b5"\par
+                        android:text="5"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/b6"\par
+                        android:text="6"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bmin"\par
+                        android:text="-"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                </LinearLayout>\par
+            </LinearLayout>\par
+            <LinearLayout\par
+                android:layout_weight="1"\par
+                android:orientation="horizontal"\par
+                android:layout_width="match_parent"\par
+                android:layout_height="match_parent">\par
+                <LinearLayout\par
+                    android:orientation="horizontal"\par
+                    android:weightSum="4"\par
+                    android:layout_width="match_parent"\par
+                    android:layout_height="match_parent">\par
+                    <Button\par
+                        android:id="@+id/b1"\par
+                        android:text="1"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/b2"\par
+                        android:text="2"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/b3"\par
+                        android:text="3"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bplus"\par
+                        android:text="+"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                </LinearLayout>\par
+            </LinearLayout>\par
+            <LinearLayout\par
+                android:layout_weight="1"\par
+                android:orientation="horizontal"\par
+                android:layout_width="match_parent"\par
+                android:layout_height="match_parent">\par
+                <LinearLayout\par
+                    android:orientation="horizontal"\par
+                    android:weightSum="4"\par
+                    android:layout_width="match_parent"\par
+                    android:layout_height="match_parent">\par
+                    <Button\par
+                        android:id="@+id/bpi"\par
+                        android:text="\f2\lang1032\'f0"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/b0"\par
+                        android:text="0"\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bdot"\par
+                        android:text="."\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#fff"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                    <Button\par
+                        android:id="@+id/bequal"\par
+                        android:text="="\par
+                        android:textSize="30sp"\par
+                        android:background="#000"\par
+                        android:textColor="#ffa500"\par
+                        android:layout_weight="1"\par
+                        android:layout_width="match_parent"\par
+                        android:layout_height="match_parent">\par
+\par
+                    </Button>\par
+                </LinearLayout>\par
+            </LinearLayout>\par
+        </LinearLayout>\par
+    </LinearLayout>\par
+\par
+</LinearLayout>\f0\lang9\par
+}
+ 
